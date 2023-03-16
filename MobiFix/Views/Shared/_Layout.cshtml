@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MobiFix</title>
+   
+    <link href="~/lib/bootswatch/lumen/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/lib/datatables/datatables.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MobiFix.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MobiFix</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                       
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="sales" asp-action="Index">Sales</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="brands" asp-action="Index">Brands</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Customers" asp-action="Index">Customers</a>
+                        </li>
+                        
+                    </ul>
+                   @* <partial name="_LoginPartial" />*@
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container  text-center">
+            &copy; 2023 - MobiFix - 
+            <a href="https://www.facebook.com/profile.php?id=100011508160581"> Moustafa Raouf </a>
+            
+            
+            - 
+        </div>
+    </footer>
+   
+    <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+     <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/datatables/datatables.min.js"></script>
+    <script src="~/js/validation-styling.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    <script>
+
+        $('Table').DataTable({
+            select: true,
+            dom: 'B<"clear">lfrtip',
+            colReorder: true,
+            buttons: ['copy',  'excel','print']
+
+        });
+       
+        
+    </script>
+   
+</body>
+</html>
